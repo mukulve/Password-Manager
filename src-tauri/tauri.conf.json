@@ -43,7 +43,7 @@
       {
         "fullscreen": false,
         "resizable": true,
-        "title": "tauri-app",
+        "title": "Password-Manager",
         "width": 600,
         "height": 300
       }
