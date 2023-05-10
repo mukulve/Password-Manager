@@ -1,8 +1,8 @@
 [package]
-name = "tauri-app"
+name = "Password-Manager"
 version = "0.0.0"
-description = "A Tauri App"
-authors = ["you"]
+description = "A Password Manager"
+authors = ["mukulve"]
 license = ""
 repository = ""
 edition = "2021"
