@@ -47,7 +47,7 @@ export const Search = () => {
   function isMatch(value) {
     let searchTerm = location.state.searchTerm;
     if (
-      value.includes(searchTerm) ||
+      value.toLowerCase().includes(searchTerm.toLowerCase()) ||
       dbJson.entries[value].username
         .toLowerCase()
         .includes(searchTerm.toLowerCase()) ||
