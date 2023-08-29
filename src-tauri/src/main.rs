@@ -25,7 +25,7 @@ struct Database {
 
 #[tauri::command]
 fn does_db_exist(app_handle: tauri::AppHandle) -> bool {
-    let app_dir = app_handle.path_resolver().app_data_dir();
+    let app_dir = app_handle.path_resolver().app_local_data_dir();
     let db_file = Path::new(&format!(
         "{}/passwords",
         &app_dir.clone().unwrap().to_str().unwrap()
@@ -52,7 +52,7 @@ fn create_db(
 ) -> Result<(), String> {
     *database.password.lock().map_err(|err| err.to_string())? = Some(password);
 
-    let app_dir = app_handle.path_resolver().app_data_dir();
+    let app_dir = app_handle.path_resolver().app_local_data_dir();
     let db_path = format!("{}/passwords", app_dir.unwrap().to_str().unwrap());
     let mut file = File::create(Path::new(&db_path)).map_err(|err| err.to_string())?;
 
@@ -77,7 +77,7 @@ fn decrypt_db(
     database: tauri::State<'_, Database>,
     password: String,
 ) -> Result<(), String> {
-    let app_dir = app_handle.path_resolver().app_data_dir();
+    let app_dir = app_handle.path_resolver().app_local_data_dir();
     let db_path = format!("{}/passwords", app_dir.unwrap().to_str().unwrap());
     let mut file = File::open(Path::new(&db_path)).map_err(|err| err.to_string())?;
 
@@ -172,7 +172,7 @@ fn encrypt_db(
     app_handle: tauri::AppHandle,
     database: tauri::State<'_, Database>,
 ) -> Result<(), String> {
-    let app_dir = app_handle.path_resolver().app_data_dir();
+    let app_dir = app_handle.path_resolver().app_local_data_dir();
     let db_path = format!("{}/passwords", app_dir.unwrap().to_str().unwrap());
     //cd /home/mukul/.local/share/com.tauri.dev
     let mut file = File::create(db_path).map_err(|err| err.to_string())?;
