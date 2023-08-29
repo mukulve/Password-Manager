@@ -1,7 +1,17 @@
-# Tauri + React
+# Password Manager
 
-This template should help get you started developing with Tauri and React in Vite.
+A desktop password manager created with tauri, rust and react.
 
-## Recommended IDE Setup
+## Features
 
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+- Password encryption using magic_crypt
+- Full CRUD abilities
+- Password generator
+
+## Roadmap
+
+- Add more features
+- Improve code performance
+- Make code more reusable
+
+## Screenshots
